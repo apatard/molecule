@@ -14,9 +14,9 @@ Variable Substitution
 
 There are following environment variables available in ``molecule.yml``:
 
-================================  ===========================================================
+================================  ===============================================================
   Variable                          Description
-================================  ===========================================================
+================================  ===============================================================
 MOLECULE_DEBUG                    If debug is turned on or off
 MOLECULE_FILE                     Path to molecule config file
 MOLECULE_ENV_FILE                 Path to molecule environment file
@@ -35,7 +35,8 @@ MOLECULE_SCENARIO_NAME            Name of the scenario
 MOLECULE_VERBOSITY                Determine Ansible verbosity level.
 MOLECULE_VERIFIER_NAME            Name of the verifier tool (usually 'ansible')
 MOLECULE_VERIFIER_TEST_DIRECTORY  ?
-================================  ===========================================================
+MOLECULE_NO_LOCK                  Disable scenario directory locking **use** **with** **caution**
+================================  ===============================================================
 
 .. _dependency:
 

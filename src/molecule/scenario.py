@@ -30,6 +30,7 @@ from typing import Optional
 
 from molecule import scenarios, util
 from molecule.constants import RC_TIMEOUT
+from molecule.util import boolean
 
 LOG = logging.getLogger(__name__)
 
@@ -166,7 +167,8 @@ class Scenario(object):
             path = ephemeral_directory(project_scenario_directory)
 
         # TODO(ssbarnea): Tune or make the retry logic configurable once we have enough data
-        if not self._lock:
+        no_lock = boolean(os.environ.get("MOLECULE_NO_LOCK", "False"))
+        if not self._lock and not no_lock:
             self._lock = open(os.path.join(path, ".lock"), "w")
             for i in range(1, 5):
                 try:
